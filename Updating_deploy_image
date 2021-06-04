@@ -1,0 +1,9 @@
+hulk@Azure:~/Hulk$ kubectl create -f deploy.yml
+deployment.apps/hulk-deploy created
+hulk@Azure:~/Hulk$ kubectl describe deploy hulk-deploy | grep -i image
+    Image:        alpine:3.10
+hulk@Azure:~/Hulk$ kubectl set image deploy hulk-deploy alpine=alpine:3.12
+deployment.apps/hulk-deploy image updated
+hulk@Azure:~/Hulk$ kubectl describe deploy hulk-deploy | grep -i image
+    Image:        alpine:3.12
+    
