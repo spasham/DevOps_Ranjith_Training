@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hulk-rs
+  labels:
+    app: hulk
+    type: avenger
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: avenger
+  template:
+        metadata:
+          labels:
+            type: avenger
+        spec:
+          containers:
+          - image: gcr.io/google_samples/gb-frontend:v3
+            name: alpine
