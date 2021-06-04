@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    type: avenger
+  name: alpine
+spec:
+  containers:
+  - image: alpine
+    name: alpine
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
+NAME            READY   STATUS    RESTARTS   AGE
+hulk-rs-889ml   1/1     Running   0          9m13s
+hulk-rs-dlq8d   1/1     Running   0          9m13s
+hulk-rs-nr8pf   1/1     Running   0          9m13s
+alpine          0/1     Pending   0          0s
+alpine          0/1     Pending   0          0s
+alpine          0/1     Pending   0          0s
+alpine          0/1     Terminating   0          0s
+alpine          0/1     Terminating   0          0s
+alpine          0/1     Terminating   0          6s
+alpine          0/1     Terminating   0          6s
