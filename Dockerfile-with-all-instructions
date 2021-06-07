@@ -1,0 +1,11 @@
+$ cat Dockerfile 
+FROM nginx
+RUN apt-get update
+USER 3000
+WORKDIR /tmp
+COPY index.html /usr/share/nginx/html/index.html
+ENV user=3000
+EXPOSE 8080
+LABEL trainer="Ranjith"
+ADD testfile /testfile
+ENTRYPOINT ["nginx"]
