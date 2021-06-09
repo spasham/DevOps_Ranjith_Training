@@ -1,0 +1,14 @@
+[node1] (local) root@192.168.0.18 ~
+$ docker network create --driver bridge --subnet=172.16.20.0/24 custom_nw
+56a942112278194f07bb39371a4f4f5379f3287a487b7ff1ca25487c928759c9
+[node1] (local) root@192.168.0.18 ~
+$ docker inspect custom_nw |grep -i sub
+                    "Subnet": "172.16.20.0/24"
+[node1] (local) root@192.168.0.18 ~
+$ docker run -itd --network custom_nw busybox /bin/sh
+223c58ff124a6b33eb8eb64f2f275ad7af7555799c96bc17e93667a569305b46
+[node1] (local) root@192.168.0.18 ~
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND     CREATED          STATUS          PORTS     NAMES
+223c58ff124a   busybox   "/bin/sh"   8 seconds ago    Up 6 seconds              charming_chandrasekhar
+223c58ff124a
