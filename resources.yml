@@ -6,7 +6,7 @@ spec:
   containers:
   - name: hello
     image: busybox
-    command: ['/bin/sh', '-c', 'while true; do echo `date` >>/tmp/bindMount/date.out']
+    command: ['/bin/sh', '-c', 'while true; do echo `date` >>/tmp/bindMount/date.out; done']
     resources:
       limits:
         cpu: 1
