@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bind-mount
+spec:
+  containers:
+  - name: hello
+    image: busybox
+    command: ['/bin/sh', '-c', 'while true; do echo `date` >>/tmp/bindMount/date.out']
+    resources:
+      limits:
+        cpu: 1
+        memory: "500Mi"
+      requests:
+        cpu: "250m"
+        memory: "250Mi"
+    volumeMounts:
+    - name: bind-mount
+      mountPath: /tmp/bindMount
+  volumes:
+  - name: bind-mount
+    hostPath:
+      path: /tmp/bindMount
